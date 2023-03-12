@@ -5,10 +5,10 @@ if (isset($_POST["company"])) {
 	$name = $_POST["name"];
 	$mail = $_POST["mail"];
 	$num = $_POST["num"];
-	$url = $_POST["url"];
 	$reason = $_POST["reason"];
+	$url = $_POST["body"];
 
-	file_put_contents("dmcareq_".date("d-m-Y").".txt", "Company: ".$company."\nFull Name: ".$name."\nEmail: ".$mail."\nPhone number: ".$num."\nInfringing URL: ".$url."\nReason: ".$reason);
+	file_put_contents("contact_".date("d-m-Y").".txt", "Company: ".$company."\nFull Name: ".$name."\nEmail: ".$mail."\nPhone number: ".$num."\nReason: ".$reason."\nBody: ".$body);
 }
 
 ?>
@@ -53,7 +53,7 @@ if (isset($_POST["company"])) {
 		</header>
 		<hr>
 		<a class="home" href="/">Home</a><br>
-		<h2>ARFNET DMCA Take Down Request Form</h2>
+		<h2>ARFNET Contact Form</h2>
 		<hr>
 		<form class="form" method="POST" action="/dmcarequest/index.php">
 			<label>Company</label><br>
@@ -64,10 +64,10 @@ if (isset($_POST["company"])) {
 			<input type="text" name="mail"></input><br><br>
 			<label>Phone number</label><br>
 			<input type="text" name="num"></input><br><br>
-			<label>Infringing URL</label><br>
-			<input type="text" name="url"></input><br><br>
-			<label>Reason (Copyright information...)</label><br>
-			<textarea class="text" name="reason"></textarea><br><br>
+			<label>Reason</label><br>
+			<input type="text" name="reason"></input><br><br>
+			<label>Body</label><br>
+			<textarea class="text" name="body"></textarea><br><br>
 			<input type="submit" value="Submit"></input>
 		</form>
 	</body>
