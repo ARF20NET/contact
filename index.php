@@ -6,9 +6,17 @@ if (isset($_POST["company"])) {
 	$mail = $_POST["mail"];
 	$num = $_POST["num"];
 	$reason = $_POST["reason"];
-	$url = $_POST["body"];
+	$body = $_POST["body"];
 
-	file_put_contents("contact_".date("d-m-Y").".txt", "Company: ".$company."\nFull Name: ".$name."\nEmail: ".$mail."\nPhone number: ".$num."\nReason: ".$reason."\nBody: ".$body);
+	$contact = "Company: ".$company."\nFull Name: ".$name."\nEmail: ".$mail."\nPhone number: ".$num."\nReason: ".$reason."\nBody: ".$body."\n==CONTACT END==\n\n";
+
+	$extra = "";
+	while (file_exists("contact_".date("d-m-Y").$extra.".txt")) {
+		$extra .= "_";
+	}
+
+	file_put_contents("contact_".date("d-m-Y").$extra.".txt", $contact);
+	mail("arf20@arf20.com", "Contact Letter", $contact, "From: contactform@arf20.com");
 }
 
 ?>
@@ -53,9 +61,17 @@ if (isset($_POST["company"])) {
 		</header>
 		<hr>
 		<a class="home" href="/">Home</a><br>
-		<h2>ARFNET Contact Form</h2>
+		<h2>ARFNET Contact Information</h2>
+		ARFNET Email: <a href="mailto:arf20@arf20.com">arf20@arf20.com</a> <a href="arf20_at_arf20.com_public.asc">PGP</a><br>
+		Personal Email: <a href="mailto:aruizfernandez05@gmail.com">aruizfernandez05@gmail.com</a><br>
+		Discord: arf20#6509<br>
+		Telegram: @arf2_0<br>
+		Twitter: @AngelRF49375726<br>
+		Instagram: @arf20__<br>
+
 		<hr>
-		<form class="form" method="POST" action="/dmcarequest/index.php">
+		<h2>ARFNET Contact Form</h2>
+		<form class="form" method="POST" action="/contact/index.php">
 			<label>Company</label><br>
 			<input type="text" name="company"></input><br><br>
 			<label>Full Name</label><br>
