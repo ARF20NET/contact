@@ -56,11 +56,12 @@ if (isset($_POST["company"])) {
 
     <body>
 		<header>
-			<img src="/arfnet_logo.png" width="64">
-			<span class="title"><strong>ARFNET</strong></span>
+			<a href="/">
+				<img src="/arfnet_logo.png" width="64">
+				<span class="title"><strong>ARFNET</strong></span>
+			</a>
 		</header>
 		<hr>
-		<a class="home" href="/">Home</a><br>
 		<h2>ARFNET Contact Information</h2>
 		ARFNET Email: <a href="mailto:arf20@arf20.com">arf20@arf20.com</a> <a href="arf20_at_arf20.com_public.asc">PGP</a><br>
 		Personal Email: <a href="mailto:aruizfernandez05@gmail.com">aruizfernandez05@gmail.com</a><br>
